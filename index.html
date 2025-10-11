@@ -1,175 +1,264 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MELHORES PLATAFORMAS DA SEMANA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* ======= ESTILOS GERAIS ======= */
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: url(fundo.jpg) no-repeat center center fixed;
-      background-size: cover;
+      font-family: 'Poppins', sans-serif;
       color: #fff;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+                  url('fundo.jpg') no-repeat center center fixed;
+      background-size: cover;
     }
 
+    /* ======= CABEÇALHO ======= */
     header {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 30px;
       text-align: center;
+      padding: 50px 20px;
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+      position: relative;
     }
 
+    /* ======= TÍTULO 3D PISCANDO ======= */
     h1 {
-      color: #f22;
+      font-size: 2.8em;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #ff1e1e;
+      text-shadow:
+        0 0 10px #ff1e1e,
+        0 0 20px #ff1e1e,
+        0 0 30px #ff0000,
+        0 0 40px #ff0000,
+        2px 2px 5px #000;
+      animation: piscar 1.5s infinite alternate;
     }
 
-    .plataformas {
+    @keyframes piscar {
+      from { text-shadow:
+        0 0 10px #ff1e1e,
+        0 0 20px #ff1e1e,
+        0 0 30px #ff0000,
+        0 0 40px #ff0000;
+        transform: scale(1);
+      }
+      to { text-shadow:
+        0 0 15px #fff,
+        0 0 30px #ff4444,
+        0 0 50px #ff1e1e,
+        0 0 70px #ff1e1e;
+        transform: scale(1.05);
+      }
+    }
+
+    /* ======= SUBTÍTULO E BOTÃO ======= */
+    .subheader {
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      padding: 30px;
-      gap: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .subheader p {
+      font-size: 1.2em;
+      color: #ffd;
+      text-shadow: 0 0 10px #ff0000;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .whatsapp-btn {
+      background: linear-gradient(45deg, #25D366, #128C7E);
+      border: none;
+      padding: 12px 25px;
+      color: #fff;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 15px #25D366;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px #25D366;
+    }
+
+    .whatsapp-btn img {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ======= CARDS ======= */
+    .plataformas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 40px 20px;
+      justify-items: center;
     }
 
     .card {
-      background: rgba(0, 0, 0, 0.8);
-      width: 90%;
-      max-width: 400px;
-      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 0 15px #000;
+      width: 100%;
+      max-width: 340px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
       position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #ff1e1e;
     }
 
     .top-banner {
       position: absolute;
-      top: 10px;
-      left: 10px;
-      background: gold;
+      top: 15px;
+      left: 15px;
+      background: linear-gradient(45deg, gold, orange);
       color: #000;
-      padding: 5px 10px;
+      padding: 6px 12px;
       font-weight: bold;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-size: 0.85em;
+      box-shadow: 0 0 10px gold;
     }
 
     .card img {
       width: 100%;
-      height: auto;
-    }
-	.card .info {
-      padding: 15px;
-      text-align: center;
+      display: block;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
     }
 
-    .card button {
-      background: #e11;
-      border: none;
-      padding: 12px 20px;
-      color: #fff;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: 0.3s;
-    }
-
-    .card button:hover {
-      background: #a00;
+    .card:hover img {
+      transform: scale(1.05);
     }
 
     footer {
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.6);
       text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #ccc;
+      padding: 25px;
+      color: #aaa;
+      font-size: 0.9em;
+      box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    footer span {
+      color: #ff3838;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>MELHORES PLATAFORMAS DA SEMANA</h1>
-  <p>Confira as plataformas mais quentes!</p>
-</header>
+  <header>
+    <h1>MELHORES PLATAFORMAS DA SEMANA</h1>
 
-<section class="plataformas">
-  <div class="card">
-    <span class="top-banner">TOP DA SEMANA</span>
-    <a href="https://pp11i1.com/?pid=3179229509" target="_blank" rel="noopener">
-      <img src="pp11.png" alt="CADASTRAR" />
-    </a>
-  </div>
-  
-  <div class="card">
-    <a href="https://79m002.com/?pid=1891488437" target="_blank" rel="noopener">
-      <img src="79m.png" alt="Plataforma 2" />
-    </a>
-  </div>
+    <div class="subheader">
+      <p>🔥 Confira as plataformas mais quentes do momento! 🔥</p>
 
-  <div class="card">
-    <a href="https://okkokok.com/?dl=bijh4e" target="_blank" rel="noopener">
-      <img src="okk.png" alt="Plataforma 2" />
-    </a>
-  </div>
+      <!-- ✅ BOTÃO DE WHATSAPP -->
+      <a href="https://wa.me/+5511974171756" target="_blank" class="whatsapp-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+        Entrar em Contato
+      </a>
+    </div>
+  </header>
 
-  <div class="card">
-    <a href="https://77qq100.com/?pid=3717976237" target="_blank" rel="noopener">
-      <img src="77QQ.jpg" alt="Plataforma 3" />
-    </a>
-  </div>
-  
-  <div class="card">
-    <a href="https://77bb13.com/?pid=2614868851" target="_blank" rel="noopener">
-      <img src="77BB.png" alt="Plataforma 4" />
-    </a>
-  </div>
-  
-  <div class="card">
-    <a href="https://5ggg66.vip/?pid=3026530471" target="_blank" rel="noopener">
-      <img src="5ggg.jpg" alt="Plataforma 5" />
-    </a>
-  </div>
-  
-  <div class="card">
-    <a href="https://56bj1.com/?pid=1826427152" target="_blank" rel="noopener">
-      <img src="56b.jpg" alt="Plataforma 6" />
-    </a>
-  </div>
-  
-  <div class="card">
-    <a href="https://11tt3.com/?pid=3296775783" target="_blank" rel="noopener">
-      <img src="11tt.jpg" alt="Plataforma 7" />
-    </a>
-  </div>
-  
-  <div class="card">
-    <a href="https://383182.com/?pid=2832697249" target="_blank" rel="noopener">
-      <img src="3831.png" alt="Plataforma 8" />
-    </a>
-  </div>
-  
-  <div class="card">
-    <a href="https://67a01.com/?pid=2751576996" target="_blank" rel="noopener">
-      <img src="67a.png" alt="Plataforma 9" />
-    </a>
-  </div>
-  
-  <div class="card">
-    <a href="https://5ggg111.com/?pid=3026530471" target="_blank" rel="noopener">
-      <img src="5ggg.jpg" alt="Plataforma 9" />
-    </a>
-  </div>
-  
-</section>
+  <section class="plataformas">
+    <div class="card">
+      <span class="top-banner">TOP DA SEMANA</span>
+      <a href="https://pp11i1.com/?pid=3179229509" target="_blank" rel="noopener">
+        <img src="pp11.png" alt="CADASTRAR" />
+      </a>
+    </div>
 
+    <div class="card">
+      <a href="https://79m002.com/?pid=1891488437" target="_blank" rel="noopener">
+        <img src="79m.png" alt="Plataforma 2" />
+      </a>
+    </div>
 
-<footer>
-  © 2025 • TODO DIA UM CASSINO NOVO - Todos os direitos reservados
-</footer>
+    <div class="card">
+      <a href="https://okkokok.com/?dl=bijh4e" target="_blank" rel="noopener">
+        <img src="okk.png" alt="Plataforma 3" />
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://77qq100.com/?pid=3717976237" target="_blank" rel="noopener">
+        <img src="77QQ.jpg" alt="Plataforma 4" />
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://77bb13.com/?pid=2614868851" target="_blank" rel="noopener">
+        <img src="77BB.png" alt="Plataforma 5" />
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://5ggg66.vip/?pid=3026530471" target="_blank" rel="noopener">
+        <img src="5ggg.jpg" alt="Plataforma 6" />
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://56bj1.com/?pid=1826427152" target="_blank" rel="noopener">
+        <img src="56b.jpg" alt="Plataforma 7" />
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://11tt3.com/?pid=3296775783" target="_blank" rel="noopener">
+        <img src="11tt.jpg" alt="Plataforma 8" />
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://383182.com/?pid=2832697249" target="_blank" rel="noopener">
+        <img src="3831.png" alt="Plataforma 9" />
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://67a01.com/?pid=2751576996" target="_blank" rel="noopener">
+        <img src="67a.png" alt="Plataforma 10" />
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://5ggg111.com/?pid=3026530471" target="_blank" rel="noopener">
+        <img src="5ggg.jpg" alt="Plataforma 11" />
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 • <span>TODO DIA UM CASSINO NOVO</span> - Todos os direitos reservados
+  </footer>
 
 </body>
 </html>
-```
-
----
