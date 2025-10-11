@@ -6,7 +6,6 @@
   <title>MELHORES PLATAFORMAS DA SEMANA</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* ======= ESTILOS GERAIS ======= */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -16,48 +15,46 @@
       background-size: cover;
     }
 
-    /* ======= CABEÇALHO ======= */
     header {
       text-align: center;
       padding: 50px 20px;
       background: rgba(0, 0, 0, 0.6);
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
       position: relative;
+      overflow: hidden;
     }
 
     /* ======= TÍTULO 3D PISCANDO ======= */
     h1 {
-      font-size: 2.8em;
+      font-size: 3em;
       font-weight: 900;
       text-transform: uppercase;
       color: #ff1e1e;
       text-shadow:
-        0 0 10px #ff1e1e,
-        0 0 20px #ff1e1e,
+        0 0 15px #ff1e1e,
         0 0 30px #ff0000,
-        0 0 40px #ff0000,
-        2px 2px 5px #000;
-      animation: piscar 1.5s infinite alternate;
+        0 0 60px #ff0000,
+        2px 2px 10px #000;
+      animation: piscar 1.6s infinite alternate, aparecer 1s ease-out;
     }
 
     @keyframes piscar {
-      from { text-shadow:
-        0 0 10px #ff1e1e,
-        0 0 20px #ff1e1e,
-        0 0 30px #ff0000,
-        0 0 40px #ff0000;
+      from {
+        text-shadow: 0 0 15px #ff1e1e, 0 0 30px #ff0000, 0 0 60px #ff0000;
         transform: scale(1);
       }
-      to { text-shadow:
-        0 0 15px #fff,
-        0 0 30px #ff4444,
-        0 0 50px #ff1e1e,
-        0 0 70px #ff1e1e;
+      to {
+        text-shadow: 0 0 30px #fff, 0 0 50px #ff4d4d, 0 0 80px #ff1e1e;
         transform: scale(1.05);
       }
     }
 
-    /* ======= SUBTÍTULO E BOTÃO ======= */
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ======= SUBTÍTULO + BOTÃO ======= */
     .subheader {
       display: flex;
       justify-content: center;
@@ -65,43 +62,46 @@
       flex-wrap: wrap;
       gap: 15px;
       margin-top: 15px;
+      animation: aparecer 1.3s ease-out;
     }
 
     .subheader p {
-      font-size: 1.2em;
-      color: #ffd;
+      font-size: 1.3em;
+      color: #ffe;
       text-shadow: 0 0 10px #ff0000;
       animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
       0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.8; }
+      50% { transform: scale(1.08); opacity: 0.85; }
       100% { transform: scale(1); opacity: 1; }
     }
 
-    .whatsapp-btn {
-      background: linear-gradient(45deg, #25D366, #128C7E);
+    /* ======= BOTÃO TELEGRAM ======= */
+    .telegram-btn {
+      background: linear-gradient(45deg, #0088cc, #00aaff);
       border: none;
       padding: 12px 25px;
       color: #fff;
       border-radius: 30px;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 0 15px #25D366;
+      box-shadow: 0 0 15px #00aaff;
       transition: all 0.3s ease;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      animation: aparecer 1.6s ease-out;
     }
 
-    .whatsapp-btn:hover {
+    .telegram-btn:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 25px #25D366;
+      box-shadow: 0 0 25px #00aaff;
     }
 
-    .whatsapp-btn img {
+    .telegram-btn img {
       width: 20px;
       height: 20px;
     }
@@ -113,6 +113,7 @@
       gap: 25px;
       padding: 40px 20px;
       justify-items: center;
+      animation: aparecer 1.5s ease-out;
     }
 
     .card {
@@ -179,10 +180,10 @@
     <div class="subheader">
       <p>🔥 Confira as plataformas mais quentes do momento! 🔥</p>
 
-      <!-- ✅ BOTÃO DE WHATSAPP -->
-      <a href="https://wa.me/+5511974171756" target="_blank" class="whatsapp-btn">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-        Entrar em Contato
+      <!-- ✅ BOTÃO DO TELEGRAM -->
+      <a href="https://t.me/+1E0Er2iWo9YyMDUx" target="_blank" class="telegram-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
+        Entrar no Grupo
       </a>
     </div>
   </header>
@@ -190,70 +191,21 @@
   <section class="plataformas">
     <div class="card">
       <span class="top-banner">TOP DA SEMANA</span>
-      <a href="https://pp11i1.com/?pid=3179229509" target="_blank" rel="noopener">
-        <img src="pp11.png" alt="CADASTRAR" />
-      </a>
+      <a href="https://pp11i1.com/?pid=3179229509" target="_blank"><img src="pp11.png" alt="CADASTRAR" /></a>
     </div>
 
-    <div class="card">
-      <a href="https://79m002.com/?pid=1891488437" target="_blank" rel="noopener">
-        <img src="79m.png" alt="Plataforma 2" />
-      </a>
-    </div>
-
-    <div class="card">
-      <a href="https://okkokok.com/?dl=bijh4e" target="_blank" rel="noopener">
-        <img src="okk.png" alt="Plataforma 3" />
-      </a>
-    </div>
-
-    <div class="card">
-      <a href="https://77qq100.com/?pid=3717976237" target="_blank" rel="noopener">
-        <img src="77QQ.jpg" alt="Plataforma 4" />
-      </a>
-    </div>
-
-    <div class="card">
-      <a href="https://77bb13.com/?pid=2614868851" target="_blank" rel="noopener">
-        <img src="77BB.png" alt="Plataforma 5" />
-      </a>
-    </div>
-
-    <div class="card">
-      <a href="https://5ggg66.vip/?pid=3026530471" target="_blank" rel="noopener">
-        <img src="5ggg.jpg" alt="Plataforma 6" />
-      </a>
-    </div>
-
-    <div class="card">
-      <a href="https://56bj1.com/?pid=1826427152" target="_blank" rel="noopener">
-        <img src="56b.jpg" alt="Plataforma 7" />
-      </a>
-    </div>
-
-    <div class="card">
-      <a href="https://11tt3.com/?pid=3296775783" target="_blank" rel="noopener">
-        <img src="11tt.jpg" alt="Plataforma 8" />
-      </a>
-    </div>
-
-    <div class="card">
-      <a href="https://383182.com/?pid=2832697249" target="_blank" rel="noopener">
-        <img src="3831.png" alt="Plataforma 9" />
-      </a>
-    </div>
-
-    <div class="card">
-      <a href="https://67a01.com/?pid=2751576996" target="_blank" rel="noopener">
-        <img src="67a.png" alt="Plataforma 10" />
-      </a>
-    </div>
-
-    <div class="card">
-      <a href="https://5ggg111.com/?pid=3026530471" target="_blank" rel="noopener">
-        <img src="5ggg.jpg" alt="Plataforma 11" />
-      </a>
-    </div>
+    <div class="card"><a href="https://79m002.com/?pid=1891488437" target="_blank"><img src="79m.png" alt="Plataforma 2" /></a></div>
+    <div class="card"><a href="https://okkokok.com/?dl=bijh4e" target="_blank"><img src="okk.png" alt="Plataforma 3" /></a></div>
+    <div class="card"><a href="https://77qq100.com/?pid=3717976237" target="_blank"><img src="77QQ.jpg" alt="Plataforma 4" /></a></div>
+    <div class="card"><a href="https://77bb13.com/?pid=2614868851" target="_blank"><img src="77BB.png" alt="Plataforma 5" /></a></div>
+    <div class="card"><a href="https://5ggg66.vip/?pid=3026530471" target="_blank"><img src="5ggg.jpg" alt="Plataforma 6" /></a></div>
+    <div class="card"><a href="https://56bj1.com/?pid=1826427152" target="_blank"><img src="56b.jpg" alt="Plataforma 7" /></a></div>
+    <div class="card"><a href="https://11tt3.com/?pid=3296775783" target="_blank"><img src="11tt.jpg" alt="Plataforma 8" /></a></div>
+    <div class="card"><a href="https://383182.com/?pid=2832697249" target="_blank"><img src="3831.png" alt="Plataforma 9" /></a></div>
+    <div class="card"><a href="https://67a01.com/?pid=2751576996" target="_blank"><img src="67a.png" alt="Plataforma 10" /></a></div>
+    <div class="card"><a href="https://5ggg111.com/?pid=3026530471" target="_blank"><img src="5ggg.jpg" alt="Plataforma 11" /></a></div>
+    <div class="card"><a href="https://a188.store/?a=ovfyy69g" target="_blank"><img src="a188.jpg" alt="Plataforma 12" /></a></div>
+    <div class="card"><a href="https://777g.shop/?a=7i13km3g" target="_blank"><img src="777g.jpg" alt="Plataforma 13" /></a></div>
   </section>
 
   <footer>
